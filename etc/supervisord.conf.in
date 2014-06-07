@@ -24,6 +24,6 @@ serverurl=unix:///tmp/supervisor.sock         ; use a unix:// URL  for a unix so
 ; To take advantage of multiple cores, you'll need multiple processes.
  
 [program:celery]
-command=/path/to/app.py --port=8000
-stderr_logfile = /var/log/supervisord/tornado-stderr.log
-stdout_logfile = /var/log/supervisord/tornado-stdout.log
+command=${buildout:bin-directory}/celery worker --app moxie.worker
+stderr_logfile = ${buildout:directory}/var/log/supervisord/celery-stderr.log
+stdout_logfile = ${buildout:directory}/var/log/supervisord/celery-stdout.log

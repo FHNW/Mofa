@@ -3,3 +3,5 @@ buildout.cfg
 /bin
 /.installed.cfg
 /etc/supervisord.conf
+*.log
+*.pid
