@@ -1,3 +1,6 @@
+[unix_http_server]
+file=/tmp/supervisor.sock   ; (the path to the socket file)
+
 [supervisord]
 logfile=${buildout:directory}/var/log/supervisord/supervisord.log    ; supervisord log file
 logfile_maxbytes=50MB                           ; maximum size of logfile before rotation
@@ -7,7 +10,7 @@ pidfile=${buildout:directory}/var/run/supervisord.pid                ; pidfile l
 nodaemon=false                                  ; run supervisord as a daemon
 minfds=1024                                     ; number of startup file descriptors
 minprocs=200                                    ; number of process descriptors
-user=root                                       ; default user
+;user=root                                       ; default user
 childlogdir=${buildout:directory}/var/log/supervisord/               ; where child log files will live
  
 [rpcinterface:supervisor]
@@ -27,3 +30,8 @@ serverurl=unix:///tmp/supervisor.sock         ; use a unix:// URL  for a unix so
 command=${buildout:bin-directory}/celery worker --app moxie.worker
 stderr_logfile = ${buildout:directory}/var/log/supervisord/celery-stderr.log
 stdout_logfile = ${buildout:directory}/var/log/supervisord/celery-stdout.log
+
+[program:moxie]
+command=${buildout:bin-directory}/moxiepy ${buildout:directory}/src/moxie/runserver.py
+stderr_logfile = ${buildout:directory}/var/log/supervisord/moxie-stderr.log
+stdout_logfile = ${buildout:directory}/var/log/supervisord/moxie-stdout.log

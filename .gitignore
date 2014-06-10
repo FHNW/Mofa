@@ -1,7 +1,9 @@
 buildout.cfg
 /parts
 /bin
-/.installed.cfg
+/.*.cfg
 /etc/supervisord.conf
 *.log
 *.pid
+/develop-eggs
+/src
