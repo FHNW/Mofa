@@ -1,0 +1,42 @@
+flask:
+    DEBUG: True
+    SECRET_KEY: 'put-your-secret-key-here'
+    DEFAULT_ALLOW_ORIGINS:
+        - 'http://localhost'
+    # Places
+    OSM_IMPORT_URL: 'http://download.geofabrik.de/europe/great-britain/england/oxfordshire-latest.osm.bz2'
+    OXPOINTS_IMPORT_URL: 'https://data.ox.ac.uk/graph/oxpoints/data'
+    OXPOINTS_SHAPES_URL: 'https://data.ox.ac.uk/graph/oxpoints-extents/data'
+    OXPOINTS_ACCESSIBILITY_URL: 'https://data.ox.ac.uk/graph/access-guide/at-a-glance'
+    NAPTAN_IMPORT_URL: 'http://www.dft.gov.uk/NaPTAN/snapshot/NaPTANxml.zip'
+    # Cache
+    CACHE_TYPE: 'redis'
+    HAL_BROWSER_REDIRECT: '/browser/'
+
+blueprints:
+    places:
+        url_prefix: /places
+        factory: moxie.places.create_blueprint
+    food:
+        url_prefix: /food
+        factory: moxie.moxie_food.create_blueprint
+
+services:
+    places:
+        POIService: {}
+        TransportService:
+            providers:
+                moxie.transport.providers.cloudamber.CloudAmberBusRtiProvider:
+                    url: 'http://www.oxontime.com'
+        SearchService:
+            backend_uri: 'solr+http://localhost:8080/solr/places'
+        KVService:
+            backend_uri: 'redis://localhost:6379/0'
+
+healthchecks:
+    Places search:
+        moxie.core.search.SearchService:
+            backend_uri: 'solr+http://localhost:8080/solr/places'
+    KV service:
+        moxie.core.kv.KVService:
+            backend_uri: 'redis://localhost:6379/0'
