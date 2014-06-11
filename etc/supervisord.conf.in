@@ -39,6 +39,6 @@ stdout_logfile = ${buildout:directory}/var/log/supervisord/mofa-server-stdout.lo
 
 [program:solr]
 command=java -jar start.jar
-directory=${solr-download:location}/example
+directory=${solr:location}/example
 stderr_logfile = /home/tom/moxie/Mofa/var/log/supervisord/solr-stderr.log
 stdout_logfile = /home/tom/moxie/Mofa/var/log/supervisord/solr-stdout.log

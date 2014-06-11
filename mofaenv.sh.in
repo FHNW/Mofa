@@ -1,4 +1,0 @@
-MOXIE_CELERYCONFIG=${buildout:directory}/etc/celeryconfig.yaml
-export $MOXIE_CELERYCONFIG
-MOXIE_SETTINGS=${buildout:directory}/etc/moxieconfig.yaml
-export $MOXIE_SETTINGS

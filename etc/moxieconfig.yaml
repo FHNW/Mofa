@@ -14,12 +14,9 @@ flask:
     HAL_BROWSER_REDIRECT: '/browser/'
 
 blueprints:
-    places:
-        url_prefix: /places
-        factory: moxie.places.create_blueprint
     food:
         url_prefix: /food
-        factory: moxie.moxie_food.create_blueprint
+        factory: moxie_food.create_blueprint
 
 services:
     places:
@@ -30,6 +27,13 @@ services:
                     url: 'http://www.oxontime.com'
         SearchService:
             backend_uri: 'solr+http://localhost:8080/solr/places'
+        KVService:
+            backend_uri: 'redis://localhost:6379/0'
+    food:
+        FoodService:
+            providers:
+                moxie_food.providers.svgroup.FhnwSvGroupFoodProvider:
+                    url: 'http://fhnw.sv-group.ch/de.html'
         KVService:
             backend_uri: 'redis://localhost:6379/0'
 
