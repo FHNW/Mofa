@@ -31,7 +31,7 @@ command=${buildout:bin-directory}/celery worker --app moxie.worker
 stderr_logfile = ${buildout:directory}/var/log/supervisord/celery-stderr.log
 stdout_logfile = ${buildout:directory}/var/log/supervisord/celery-stdout.log
 
-[program:moxie]
-command=${buildout:bin-directory}/moxiepy ${buildout:directory}/src/moxie/runserver.py
-stderr_logfile = ${buildout:directory}/var/log/supervisord/moxie-stderr.log
-stdout_logfile = ${buildout:directory}/var/log/supervisord/moxie-stdout.log
+[program:mofa-server]
+command=${buildout:bin-directory}/waitress-serve moxie.wsgi:app
+stderr_logfile = ${buildout:directory}/var/log/supervisord/mofa-server-stderr.log
+stdout_logfile = ${buildout:directory}/var/log/supervisord/mofa-server-stdout.log
