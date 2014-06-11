@@ -1,0 +1,11 @@
+CELERY_IMPORTS:
+      - moxie.places.tasks
+      - moxie_food.tasks
+
+BROKER_URL:
+    redis://localhost:6379/1
+
+## Results backend
+CELERY_RESULT_BACKEND:
+    redis://localhost:6379/1
+

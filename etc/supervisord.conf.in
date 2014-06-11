@@ -33,6 +33,7 @@ stdout_logfile = ${buildout:directory}/var/log/supervisord/celery-stdout.log
 
 [program:mofa-server]
 command=${buildout:bin-directory}/waitress-serve moxie.wsgi:app
+environment=MOXIE_CELERYCONFIG=${buildout:directory}/etc/celeryconfig.yaml
 stderr_logfile = ${buildout:directory}/var/log/supervisord/mofa-server-stderr.log
 stdout_logfile = ${buildout:directory}/var/log/supervisord/mofa-server-stdout.log
 
