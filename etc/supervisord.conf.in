@@ -35,3 +35,9 @@ stdout_logfile = ${buildout:directory}/var/log/supervisord/celery-stdout.log
 command=${buildout:bin-directory}/waitress-serve moxie.wsgi:app
 stderr_logfile = ${buildout:directory}/var/log/supervisord/mofa-server-stderr.log
 stdout_logfile = ${buildout:directory}/var/log/supervisord/mofa-server-stdout.log
+
+[program:solr]
+command=java -jar start.jar
+directory=${solr-download:location}/example
+stderr_logfile = /home/tom/moxie/Mofa/var/log/supervisord/solr-stderr.log
+stdout_logfile = /home/tom/moxie/Mofa/var/log/supervisord/solr-stdout.log
