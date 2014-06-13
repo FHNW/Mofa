@@ -4,11 +4,11 @@ flask:
     DEFAULT_ALLOW_ORIGINS:
         - 'http://localhost'
     # Places
-    OSM_IMPORT_URL: 'http://download.geofabrik.de/europe/great-britain/england/oxfordshire-latest.osm.bz2'
-    OXPOINTS_IMPORT_URL: 'https://data.ox.ac.uk/graph/oxpoints/data'
-    OXPOINTS_SHAPES_URL: 'https://data.ox.ac.uk/graph/oxpoints-extents/data'
-    OXPOINTS_ACCESSIBILITY_URL: 'https://data.ox.ac.uk/graph/access-guide/at-a-glance'
-    NAPTAN_IMPORT_URL: 'http://www.dft.gov.uk/NaPTAN/snapshot/NaPTANxml.zip'
+    OSM_IMPORT_URL: 'http://download.geofabrik.de/europe/switzerland-latest.osm.bz2'
+
+    # XXX change this
+    SBB_IMPORT_URL: 'http://localhost:8000/example.db'
+
     # Cache
     CACHE_TYPE: 'redis'
     HAL_BROWSER_REDIRECT: '/browser/'
@@ -21,10 +21,6 @@ blueprints:
 services:
     places:
         POIService: {}
-        TransportService:
-            providers:
-                moxie.transport.providers.cloudamber.CloudAmberBusRtiProvider:
-                    url: 'http://www.oxontime.com'
         SearchService:
             backend_uri: 'solr+http://localhost:8080/solr/places'
         KVService:

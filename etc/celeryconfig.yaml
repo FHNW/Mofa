@@ -1,6 +1,7 @@
 CELERY_IMPORTS:
       - moxie.places.tasks
       - moxie_food.tasks
+      - mofa_places.tasks
 
 BROKER_URL:
     redis://localhost:6379/1

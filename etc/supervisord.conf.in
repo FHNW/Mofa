@@ -28,6 +28,7 @@ serverurl=unix:///tmp/supervisor.sock         ; use a unix:// URL  for a unix so
  
 [program:celery]
 command=${buildout:bin-directory}/celery worker --app moxie.worker
+environment=MOXIE_CELERYCONFIG=${buildout:directory}/etc/celeryconfig.yaml
 stderr_logfile = ${buildout:directory}/var/log/supervisord/celery-stderr.log
 stdout_logfile = ${buildout:directory}/var/log/supervisord/celery-stdout.log
 
