@@ -12,11 +12,15 @@ flask:
     # Cache
     CACHE_TYPE: 'redis'
     HAL_BROWSER_REDIRECT: '/browser/'
+    SQLALCHEMY_DATABASE_URI: 'sqlite:///${buildout:directory}/var/notifications.db'
 
 blueprints:
     food:
         url_prefix: /food
         factory: moxie_food.create_blueprint
+    notifications:
+        url_prefix: /notifications
+        factory: moxie_notifications.create_blueprint
 
 services:
     places:
@@ -32,6 +36,8 @@ services:
                     url: 'http://fhnw.sv-group.ch/de.html'
         KVService:
             backend_uri: 'redis://localhost:6379/0'
+    notifications:
+        NotificationsService: {}
 
 healthchecks:
     Places search:

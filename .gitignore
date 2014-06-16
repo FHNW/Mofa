@@ -3,7 +3,9 @@ buildout.cfg
 /bin
 /.*.cfg
 /etc/supervisord.conf
+/etc/moxieconfig.yaml
 *.log
 *.pid
 /develop-eggs
 /src
+/var/notifications.db
