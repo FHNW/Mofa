@@ -36,3 +36,15 @@ Include environment variables in current shell ::
 Start the supervisor ::
 
  $ bin/supervisord
+
+
+
+Deploying App
+=============
+
+Fetch git repositories not handled by mr.developer: ::
+
+ $ cd src/moxie-phonegap/mobilefhnw/moxie-js-client
+ $ git submodule init
+ $ git submodule update
+
