@@ -10,3 +10,5 @@ BROKER_URL:
 CELERY_RESULT_BACKEND:
     redis://localhost:6379/1
 
+SBB_IMPORT_URL:
+    http://localhost:8000/example.db
