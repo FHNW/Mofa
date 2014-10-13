@@ -38,7 +38,6 @@ Start the supervisor ::
  $ bin/supervisord
 
 
-
 Deploying App
 =============
 
@@ -47,4 +46,13 @@ Fetch git repositories not handled by mr.developer: ::
  $ cd src/moxie-phonegap/mobilefhnw/moxie-js-client
  $ git submodule init
  $ git submodule update
+
+
+Developing App
+==============
+
+ Generate APP ::
+
+ $ cd src/moxie-phonegap/mobilefhnw/
+ $ make assets
 
