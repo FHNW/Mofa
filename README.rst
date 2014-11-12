@@ -48,6 +48,11 @@ Fetch git repositories not handled by mr.developer: ::
  $ git submodule update
 
 
+Install dependencies (in directory
+*src/moxie-phonegap/mobilefhnw/moxie-js-client*): ::
+
+ $ bundle install --path=.
+
 Developing App
 ==============
 
