@@ -9,3 +9,5 @@ buildout.cfg
 /develop-eggs
 /src
 /var/notifications.db
+/include
+/lib
