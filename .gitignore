@@ -2,7 +2,7 @@ buildout.cfg
 /parts
 /bin
 /.*.cfg
-/etc/supervisord.conf
+/etc/*.conf
 /etc/moxieconfig.yaml
 *.log
 *.pid
@@ -11,3 +11,4 @@ buildout.cfg
 /var/notifications.db
 /include
 /lib
+/eggs
