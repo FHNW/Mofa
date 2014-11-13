@@ -61,8 +61,8 @@ server {
 	# Create a location block for each handler you'd like to whitelist
 	location /solr/places/select {
 	
-		# Only allow GET requests
-	        limit_except GET {
+		# Only allow GET & POST requests
+	        limit_except GET POST {
         	        deny all;
 	        }
 	        
