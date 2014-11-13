@@ -29,6 +29,10 @@ Copy the jts libraries ::
  $ cd <buildout-dir>
  $ bin/buildout install extra-config
 
+Create notifications database ::
+
+ $ bin/moxiepy src/moxie-notifications/create_db.py
+
 Include environment variables in current shell ::
 
  $ source bin/mofaenv.sh
