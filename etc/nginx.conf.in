@@ -7,7 +7,7 @@
         #access_log  /var/log/nginx/host.access.log  main;
 
         location / {
-            root   ${buildout:directory}/src/moxie-phonegap/mobilefhnw/www;
+            root   ${buildout:directory}/src/moxie-phonegap/mobilefhnw/moxie-js-client;
             index  index.html index.htm;
         }
 
@@ -59,7 +59,7 @@ server {
 	}
 	
 	# Create a location block for each handler you'd like to whitelist
-	location /solr/places/select {
+	location /solr/places {
 	
 		# Only allow GET & POST requests
 	        limit_except GET POST {
@@ -84,7 +84,7 @@ server {
 		if ($args ~ [\&\?]stream.*?=(.*)) {
 			return 403;
 		}
-		proxy_pass http://127.0.0.1:8983/solr/places_production/select;
+		proxy_pass http://127.0.0.1:8983/solr/places_production;
 		
 		# Some shared proxy settings
                 proxy_set_header Host $host;

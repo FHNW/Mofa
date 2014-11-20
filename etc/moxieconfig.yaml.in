@@ -13,6 +13,9 @@ flask:
     CACHE_TYPE: 'redis'
     HAL_BROWSER_REDIRECT: '/browser/'
     SQLALCHEMY_DATABASE_URI: 'sqlite:///${buildout:directory}/var/notifications.db'
+    PLACES_SOLR_SERVER: 'http://localhost:8983/solr'
+    PLACES_SOLR_CORE_PRODUCTION: 'places_production'
+    PLACES_SOLR_CORE_STAGING: 'places_staging'
 
 blueprints:
     food:
