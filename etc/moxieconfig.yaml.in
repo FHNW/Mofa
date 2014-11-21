@@ -24,6 +24,9 @@ blueprints:
     notifications:
         url_prefix: /notifications
         factory: moxie_notifications.create_blueprint
+    events:
+        url_prefix: /events
+        factory: moxie_events.create_blueprint
 
 services:
     places:
@@ -41,6 +44,10 @@ services:
             backend_uri: 'redis://localhost:6379/0'
     notifications:
         NotificationsService: {}
+    events:
+        EventsService: {}
+        SearchService:
+            backend_uri: 'solr+http://localhost:8080/solr/events'
 
 healthchecks:
     Places search:
