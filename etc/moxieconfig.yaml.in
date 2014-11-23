@@ -31,6 +31,10 @@ blueprints:
 services:
     places:
         POIService: {}
+        TransportService:
+            providers:
+                mofa_places.transport.sbb.SbbRtiProvider:
+                    url: http://sbb.ch
         SearchService:
             backend_uri: 'solr+http://localhost:8080/solr/places'
         KVService:
