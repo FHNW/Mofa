@@ -12,3 +12,4 @@ buildout.cfg
 /include
 /lib
 /eggs
+.idea
